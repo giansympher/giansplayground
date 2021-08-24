@@ -1,0 +1,18 @@
+steps:
+  - name: node:14.15.1
+    entrypoint: npm
+    args: ['install']
+    id: 'install'
+
+- name: node:14.15.1
+  entrypoint: npm
+  args: ['run', 'build']
+  id: 'build'
+  waitFor: ['install']
+
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'app.yaml']
+  waitFor: ['build']
+
+timeout: 1200s

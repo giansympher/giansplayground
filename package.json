@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky install",
     "lint": "eslint --fix .",
     "pretty": "prettier --write ./**/*.{js,jsx,ts,tsx,md,json} --config ./.prettierrc"
   },
@@ -16,12 +15,6 @@
       "git add -u",
       "pretty-quick --staged"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run build"
-    }
   },
   "dependencies": {
     "@google-cloud/firestore": "^4.12.2",
